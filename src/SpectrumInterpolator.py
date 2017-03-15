@@ -2,7 +2,7 @@ import numpy as np
 import sys
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s')
 
 
 class SpectrumInterpolator:
@@ -50,6 +50,8 @@ class SpectrumInterpolator:
             return file_data[xname], file_data[yname]
 
         except Exception as ex:
-            logging.error('Errors occurred during reading file:', filepath)
-            logging.error('Error:', ex)
+            logging.error('Errors occurred during reading file: %s' % filepath)
+            logging.error('Error: ' + str(ex))
             sys.exit()
+
+
