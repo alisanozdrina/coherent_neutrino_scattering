@@ -1,1 +1,7 @@
-# coherent_neutrino_scattering
+# Coherent neutrino scattering
+
+## Unit testing
+Execute from project root:
+```
+pytest -s
+```
