@@ -1,8 +1,9 @@
 import numpy as np
 import sys
+import src.config as config
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class SpectrumInterpolator:
@@ -12,11 +13,11 @@ class SpectrumInterpolator:
         self.x_min = self.x.min()
         self.x_max = self.x.max()
 
-        logging.info('File data was read successfully!')
+        logger.info('File data was read successfully!')
 
     def interpolate(self, x_value):
         if (x_value < self.x_min) or (x_value > self.x_max):
-            logging.error('Unexpected value for interpolation:')
+            logger.error('Unexpected value for interpolation:')
             return None
 
         if x_value == self.x[self.x.size - 1]:
@@ -50,8 +51,8 @@ class SpectrumInterpolator:
             return file_data[xname], file_data[yname]
 
         except Exception as ex:
-            logging.error('Errors occurred during reading file: %s' % filepath)
-            logging.error('Error: ' + str(ex))
+            logger.error('Errors occurred during reading file: %s' % filepath)
+            logger.error('Error: ' + str(ex))
             sys.exit()
 
 
