@@ -34,13 +34,24 @@ def differential_cross_section_for_nucleus_kinetic(Z, N, nucleus_m, nu_energy, n
     :param nucleus_m: nucleus mass
     :param nu_energy: initial neutrino energy in MeV
     :param nucleus_kin: kinetic energy of the recoiling nucleus
-    :return: differential cross section for kinetic energy of the recoiling nucleus (PHYSICAL REVIEW D 85, 013009 (2012)
+    :return: differential cross section for kinetic energy of the recoil nucleus (PHYSICAL REVIEW D 85, 013009 (2012)
     """
 
     Q_weak = weak_charge(Z, N)
     differential_cs = G_FERMI**2 / (4 * math.pi) * Q_weak**2 * nucleus_m * (1 - (nucleus_m * nucleus_kin) / (2 * nu_energy**2))
 
     return differential_cs
+
+
+def max_kinetic_recoil_nucleus(nucleus_m, nu_energy):
+
+    """
+    :param nucleus_m: nucleus mass
+    :param nu_energy: initial neutrino energy in MeV
+    :return: The maximum kinetic energy of the recoil nucleus
+    """
+    max_kinetic = nu_energy / (1 + (nucleus_m / (2 * nu_energy)))
+    return max_kinetic
 
 
 def weak_charge(Z, N):
