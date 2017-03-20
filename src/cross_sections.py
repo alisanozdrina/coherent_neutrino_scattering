@@ -10,7 +10,7 @@ def total_coherent_neutrino_nucleus(Z, N, nu_energy):
 
     :param Z: number of protons in nucleus
     :param N: number of neutron in nucleus
-    :param nu_energy: initial neutrino energy
+    :param nu_energy: initial neutrino energy in MeV
 
     :return: total cross section of the process. See "Sterile neutrinos, coherent scattering, and oscillometry measurements
     with low-temperature bolometers" by Joseph A. Formaggio and etc (PHYSICAL REVIEW D 85, 013009 (2012))
