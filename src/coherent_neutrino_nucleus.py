@@ -54,6 +54,17 @@ def max_kinetic_recoil_nucleus(nucleus_m, nu_energy):
     return max_kinetic
 
 
+def min_energy_neutrino_produce_recoil_nucleus(nucleus_m, kinetic_nucleus):
+    """
+    Inverse function to `max_kinetic_recoil_nucleus`
+    :param nucleus_m: nucleus mass
+    :param kinetic_nucleus: kinetic energy of the recoil nucleus
+    :return: minimal neutrino energy needed to produce recoil nucleus with kinetic equals to `kinetic_nucleus`
+    """
+    nu_energy = 0.5 * (kinetic_nucleus + math.sqrt(kinetic_nucleus**2 + 2 * kinetic_nucleus * nucleus_m))
+    return nu_energy
+
+
 def weak_charge(Z, N):
 
     """
