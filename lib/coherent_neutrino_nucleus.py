@@ -1,5 +1,5 @@
 import math
-from src.phys_constants import *
+from lib.phys_constants import *
 
 
 def total_cross_section(Z, N, nu_energy):
@@ -54,14 +54,14 @@ def max_kinetic_recoil_nucleus(nucleus_m, nu_energy):
     return max_kinetic
 
 
-def min_energy_neutrino_produce_recoil_nucleus(nucleus_m, kinetic_nucleus):
+def min_energy_neutrino_produce_recoil_nucleus(nucleus_m, nucleus_kin):
     """
     Inverse function to `max_kinetic_recoil_nucleus`
     :param nucleus_m: nucleus mass
-    :param kinetic_nucleus: kinetic energy of the recoil nucleus
+    :param nucleus_kin: kinetic energy of the recoil nucleus
     :return: minimal neutrino energy needed to produce recoil nucleus with kinetic equals to `kinetic_nucleus`
     """
-    nu_energy = 0.5 * (kinetic_nucleus + math.sqrt(kinetic_nucleus**2 + 2 * kinetic_nucleus * nucleus_m))
+    nu_energy = 0.5 * (nucleus_kin + math.sqrt(nucleus_kin ** 2 + 2 * nucleus_kin * nucleus_m))
     return nu_energy
 
 

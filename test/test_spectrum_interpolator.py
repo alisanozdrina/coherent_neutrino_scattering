@@ -1,8 +1,8 @@
 import pytest
-from src.config import config
+from lib.config import config
 from os.path import abspath
 
-from src.SpectrumInterpolator import SpectrumInterpolator
+from lib.SpectrumInterpolator import SpectrumInterpolator
 
 mock_path = abspath(config['DATA_PATH'] + 'mock_reactor_neutrino_spectrum.csv')
 mock_spectrum = SpectrumInterpolator(mock_path, 'E', 'dN_dE')

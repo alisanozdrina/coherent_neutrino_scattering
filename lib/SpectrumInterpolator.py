@@ -1,6 +1,6 @@
 import numpy as np
 import sys
-import src.config as config
+import lib.config as config
 import logging
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ class SpectrumInterpolator:
 
     def interpolate(self, x_value):
         if (x_value < self.x_min) or (x_value > self.x_max):
-            logger.error('Unexpected value for interpolation:')
+            logger.debug('Unexpected value for interpolation:')
             return None
 
         if x_value == self.x[self.x.size - 1]:
